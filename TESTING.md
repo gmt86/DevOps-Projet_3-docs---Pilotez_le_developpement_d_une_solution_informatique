@@ -15,7 +15,13 @@
 | 10 | Auth flux     | E2E          | Cypress | Login → Accès espace personnel → Déconnexion   |
 
 ## Seuil de couverture
-Objectif : **70% minimum**
+Objectif : **70% minimum** 
+
+## Rapport de couverture JaCoCo
+
+Couverture atteinte : **71%** 
+
+![Rapport JaCoCo](./backend-testunitaire-rapport-couverture-jacoco.png)
 
 ## Instructions d'exécution
 
