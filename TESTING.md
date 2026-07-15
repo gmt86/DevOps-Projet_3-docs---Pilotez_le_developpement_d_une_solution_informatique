@@ -26,22 +26,40 @@ Couverture atteinte : **71%**
 ## Instructions d'exécution
 
 ### Tests unitaires backend (JUnit)
-```bash
-cd backend
-./mvnw test
+```Dans un termial bash acceder au dossier projet backend 
+cd backend 
+./mvnw test --> pour lancer le test 
 ```
 
 ### Tests unitaires frontend (Jest)
-```bash
-cd frontend
-npm test
+```Dans un termial bash acceder au dossier projet frontend 
+cd frontend 
+npm test --> pour lancer le test
 ```
 
-### Tests E2E (Cypress)
-```bash
+### Instructions d'exécution Cypress
+```Dans des terminaux bash acceder aux dossiers projets backend et frontend 
+# D'abord lancer le backend dans un terminal et frontend dans un autre terminal 
+
+cd backend 
+./mvnw run --> pour lancer le backend
 cd frontend
-npx cypress open
+ng serve --> pour lancer le frontend
+
+puis dans un autre terminal acceder au dossier projet frontend
+cd frontend 
+npx cypress open --> pour demarrer le test
+# ou en mode headless
+npx cypress run
 ```
 
-## Résultats
- 
+## Résultats Cypress E2E
+
+| Fichier            | Tests | Statut |
+|--------------------|-------|--------|
+| `auth.cy.ts`       | 5     | ✅     |
+| `fichiers.cy.ts`   | 7     | ✅     |
+| **Total**          | **12**| ✅     |
+
+ ![capture Cypress](./frontend-e2e-auth.png)
+ ![capture Cypress](./frontend-e2e-gestionFichier.png)
