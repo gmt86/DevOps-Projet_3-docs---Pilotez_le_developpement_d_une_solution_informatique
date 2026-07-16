@@ -22,7 +22,7 @@ docker compose up -d
 ```
 
 l'ecran final resemblerai a ceci
-![capture test](../screenshots/docker-capture-demarrage.png)
+![capture test](./screenshots/docker-capture-demarrage.png)
 
 Ouvrir un terminal interactif PostgreSQL (psql) à l'intérieur du conteneur Docker afin d'exécuter des commandes SQL sur la base de données datashare
 
@@ -53,8 +53,8 @@ cd backend
 ./mvnw spring-boot:run
 ```
 l'ecran final resemblerai a ceci
-![capture test](../screenshots/backend-ecran-demarrage-1.png)
-![capture test](../screenshots/backend-ecran-demarrage-2.png)
+![capture test](./screenshots/backend-ecran-demarrage-1.png)
+![capture test](./screenshots/backend-ecran-demarrage-2.png)
 
 ### Frontend
 ```bash
@@ -62,7 +62,7 @@ cd frontend
 ng serve
 ```
 l'ecran final resemblerai a ceci
-![capture test](../screenshots/frontend-ecran-demarrage.png)
+![capture test](./screenshots/frontend-ecran-demarrage.png)
 ---
 
 ## 3. Procédures d'arrêt

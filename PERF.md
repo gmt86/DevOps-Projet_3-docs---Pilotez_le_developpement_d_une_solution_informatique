@@ -120,4 +120,4 @@ Les logs Spring Boot sont configurés en niveau `DEBUG` pour tracer :
 
 
 
-![capture test](../screenshots/k6-test-perfomance-upload.png)
+![capture test](./screenshots/k6-test-perfomance-upload.png)
