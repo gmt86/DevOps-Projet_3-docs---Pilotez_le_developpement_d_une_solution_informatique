@@ -37,6 +37,7 @@ DataShare/
 ├── backend/               ← API Spring Boot
 └── frontend/              ← Application Angular
 
+![structure docs](../screenshots/docs-structure.png)
 
 ---
 
