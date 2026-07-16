@@ -45,10 +45,10 @@ L'endpoint upload est le plus critique car il :
 ## Scénario de test
 1. Inscription d'un utilisateur de test (setup)
 2. Pour chaque VU :
-      a. Connexion → récupération token JWT
-      b. Upload fichier texte via multipart
-      c. Vérification statut 201
-      d. Pause 1 seconde
+   - Connexion → récupération token JWT
+   - Upload fichier texte via multipart
+   - Vérification statut 201
+   - Pause 1 seconde
  
  
 ## Résultats
