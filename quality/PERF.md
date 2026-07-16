@@ -121,3 +121,46 @@ Les logs Spring Boot sont configurés en niveau `DEBUG` pour tracer :
 
 
 ![capture test](../screenshots/k6-test-perfomance-upload.png)
+
+## Budget de performance Frontend (Lighthouse)
+
+### Page testée
+`http://localhost:4200/home`
+
+### Scores globaux
+
+| Catégorie | Score | Statut |
+|-----------|-------|--------|
+| Performance | 77 | ⚠️ |
+| Accessibility | 100 | ✅ |
+| Best Practices | 100 | ✅ |
+| SEO | 90 | ✅ |
+
+### Métriques détaillées
+
+| Métrique | Valeur | Statut |
+|----------|--------|--------|
+| FCP (First Contentful Paint) | 1.6s | ⚠️ |
+| LCP (Largest Contentful Paint) | 2.7s | ⚠️ |
+| TBT (Total Blocking Time) | 30ms | ✅ |
+| CLS (Cumulative Layout Shift) | 0 | ✅ |
+| Speed Index | 1.9s | ⚠️ |
+
+![capture test](../screenshots/budget-performance-capture.png)
+
+### Analyse
+
+✅ **TBT et CLS excellents** — le JavaScript ne bloque pas le rendu et la page est stable visuellement.
+
+⚠️ **FCP et LCP perfectibles** — ces valeurs sont mesurées en mode développement (`ng serve`). En production (`ng build --configuration production`), ces métriques seraient significativement améliorées grâce à :
+- Minification et compression du code
+- Tree shaking — suppression du code inutilisé
+- AOT Compilation — templates précompilés
+- Lazy loading des modules
+
+### Points d'amélioration
+
+- Activer le **lazy loading** sur toutes les routes
+- Optimiser les images avec **WebP**
+- Mettre en place un **Service Worker** pour le cache navigateur
+- Activer la **compression gzip/brotli** côté serveur
