@@ -21,7 +21,7 @@ Objectif : **70% minimum**
 
 Couverture atteinte : **71%** 
 
-![Rapport JaCoCo](./backend-testunitaire-rapport-couverture-jacoco.png)
+![Rapport JaCoCo](../screenshots/backend-testunitaire-rapport-couverture-jacoco.png)
 
 ## Instructions d'exécution
 
@@ -61,5 +61,5 @@ npx cypress run
 | `fichiers.cy.ts`   | 7     | ✅     |
 | **Total**          | **12**| ✅     |
 
- ![capture Cypress](./frontend-e2e-auth.png)
- ![capture Cypress](./frontend-e2e-gestionFichier.png)
+ ![capture Cypress](../screenshots/frontend-e2e-auth.png)
+ ![capture Cypress](../screenshots/frontend-e2e-gestionFichier.png)
