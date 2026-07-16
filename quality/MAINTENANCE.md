@@ -84,21 +84,109 @@ docker compose down
 ## 4. Mise à jour des dépendances
 
 ### Backend (Maven)
+
+#### Fréquence recommandée
+| Type | Fréquence |
+|------|-----------|
+| Mises à jour mineures | Mensuelle |
+| Mises à jour majeures | Trimestrielle |
+| Correctifs sécurité | Immédiate |
+
+#### Procédure
 ```bash
-cd backend
+# 1. Afficher les dépendances obsolètes
 ./mvnw versions:display-dependency-updates
+
+# 2. Mettre à jour automatiquement
 ./mvnw versions:use-latest-releases
-./mvnw test  # vérifier que les tests passent
+
+# 3. Vérifier que les tests passent
+./mvnw test
+
+# 4. Commiter si tout est OK
+git add pom.xml
+git commit -m "chore: update backend dependencies"
 ```
 
+#### Risques à surveiller
+| Risque | Description | Action |
+|--------|-------------|--------|
+| Breaking changes | API modifiée entre versions | Lire le changelog avant mise à jour |
+| Incompatibilité | Deux dépendances incompatibles | Tester après chaque mise à jour |
+| Régression | Tests qui échouent | Ne pas déployer si tests KO |
+| Vulnérabilité | Faille de sécurité | Mettre à jour immédiatement |
+
+---
+
 ### Frontend (npm)
+
+#### Fréquence recommandée
+| Type | Fréquence |
+|------|-----------|
+| Mises à jour mineures (`npm update`) | Mensuelle |
+| Mises à jour majeures | Trimestrielle |
+| Correctifs sécurité (`npm audit fix`) | Immédiate |
+
+#### Procédure
 ```bash
-cd frontend
-npm outdated          # affiche les dépendances obsolètes
-npm update            # met à jour les dépendances mineures
-npm audit fix         # corrige les vulnérabilités
-npm run test:jest     # vérifier que les tests passent
+# 1. Afficher les dépendances obsolètes
+npm outdated
+
+# 2. Mettre à jour les dépendances mineures
+npm update
+
+# 3. Corriger les vulnérabilités
+npm audit fix
+
+# 4. Vérifier que les tests passent
+npm run test:jest
+npx cypress run
+
+# 5. Vérifier que l'application fonctionne
+ng serve
+
+# 6. Commiter si tout est OK
+git add package.json package-lock.json
+git commit -m "chore: update frontend dependencies"
 ```
+
+#### Risques à surveiller
+| Risque | Description | Action |
+|--------|-------------|--------|
+| Breaking changes Angular | API Angular modifiée | Consulter le guide de migration Angular |
+| Incompatibilité Jest/Angular | Versions incompatibles | Vérifier `jest-preset-angular` peerDependencies |
+| Bundle size | Taille du bundle augmente | Analyser avec `ng build --stats-json` |
+| Vulnérabilités | `npm audit` détecte des failles | Corriger ou documenter dans SECURITY.md |
+
+---
+
+### Docker
+
+#### Fréquence recommandée
+| Type | Fréquence |
+|------|-----------|
+| Image PostgreSQL | Trimestrielle |
+
+#### Procédure
+```bash
+# 1. Mettre à jour l'image dans compose.yml
+# postgres:15 → postgres:16
+
+# 2. Recréer le conteneur
+docker compose down
+docker compose pull
+docker compose up -d
+
+# 3. Vérifier que la BDD fonctionne
+docker ps
+./mvnw test
+```
+
+#### Risques à surveiller
+| Risque | Description | Action |
+|--------|-------------|--------|
+| Migration BDD | Changements SQL entre versions PostgreSQL | Tester avec une copie des données |
+| Perte de données | Mauvaise manipulation Docker | Sauvegarder avant toute mise à jour |
 
 ---
 
