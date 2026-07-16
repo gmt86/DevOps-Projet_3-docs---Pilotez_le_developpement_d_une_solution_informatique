@@ -8,17 +8,20 @@
 k6 run k6/upload-test.js
 ```
 
+
 ### Instructions d'exécution k6
-```Dans des terminaux bash acceder aux dossiers projets backend  
+Dans des terminaux bash acceder aux dossiers projets backend  
 # D'abord lancer le backend dans un terminal 
-
+```bash
 cd backend 
-./mvnw spring-boot:run --> pour lancer le backend
 
+./mvnw spring-boot:run --> pour lancer le backend
+``` 
 puis dans un autre terminal acceder au dossier projet backend
+```bash
 cd backend
 k6 run k6/upload-test.js --> pour demarrer le test
-
+```
 
 ## Endpoint testé
 `POST /api/fichiers` — Upload de fichier
@@ -82,7 +85,6 @@ L'endpoint upload est le plus critique car il :
 | response time < 2s   | ✅ 100% |
 
 
-![capture test](./k6-test-perfomance-upload.png)
 
 ## Analyse
 
@@ -118,4 +120,4 @@ DEBUG : Completed 201 CREATED
 
 
 
-
+![capture test](./k6-test-perfomance-upload.png)
