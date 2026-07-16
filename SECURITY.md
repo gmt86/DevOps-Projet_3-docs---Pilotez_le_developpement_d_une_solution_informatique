@@ -31,7 +31,6 @@ de Spring Boot 3.5.16 qui garantit la compatibilité et la sécurité des versio
 ### Résultats
 Aucune vulnérabilité critique détectée sur les dépendances Spring Boot 3.5.
 
----
 
 ## 1.1. Mesures de sécurité implémentées
 
@@ -42,8 +41,8 @@ Aucune vulnérabilité critique détectée sur les dépendances Spring Boot 3.5.
 
 ### API
 - **CORS** — configuré pour autoriser uniquement `http://localhost:4200`
-- **CSRF** — désactivé (API stateless avec JWT)
-- **Validation des entrées** — `@Valid`, `@NotBlank`, `@Email` sur tous les DTOs
+- **CSRF** — désactivé (API stateless avec JWT) — le token JWT est stocké dans le localStorage et jamais envoyé automatiquement par le navigateur. 
+- **Validation des en*trées** — `@Valid`, `@NotBlank`, `@Email` sur tous les DTOs
 - **Gestion centralisée des erreurs** — `GlobalExceptionHandler` évite l'exposition de détails techniques
 
 ### Fichiers
@@ -56,7 +55,6 @@ Aucune vulnérabilité critique détectée sur les dépendances Spring Boot 3.5.
 - Toutes les données sensibles dans `.env` (commité juste pour des besoins de formation)
 - `
 
----
 
 ## 1.2. Points d'amélioration pour la production
 
@@ -95,7 +93,6 @@ npm audit --json
 | `@babel/core`        | Low         | Lecture de fichier arbitraire via sourceMappingURL | **Ignorée** | Dépendance de développement uniquement. N'affecte pas la production. |
 | `esbuild` | Low      | Lecture de fichier arbitraire sur Windows | **Ignorée** | Dépendance de développement. Projet déployé sur Linux uniquement. |
 
----
 
 ![capture audit](./frontend-resultats-scan.png)
 
