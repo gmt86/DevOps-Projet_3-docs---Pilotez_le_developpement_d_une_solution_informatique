@@ -104,11 +104,11 @@ Les logs Spring Boot sont configurés en niveau `DEBUG` pour tracer :
 - Les erreurs métier
 
 ### Exemple de log upload réussi
-DEBUG : Securing POST /api/fichiers
-DEBUG : Token validated successfully for user: perf@datashare.com
-DEBUG : Uploading file: test.txt for user: 1
-INFO  : File uploaded successfully: test.txt for user: 1
-DEBUG : Completed 201 CREATED
+- DEBUG : Securing POST /api/fichiers
+- DEBUG : Token validated successfully for user: perf@datashare.com
+- DEBUG : Uploading file: test.txt for user: 1
+- INFO  : File uploaded successfully: test.txt for user: 1
+- DEBUG : Completed 201 CREATED
 
 ## Points d'amélioration
 
