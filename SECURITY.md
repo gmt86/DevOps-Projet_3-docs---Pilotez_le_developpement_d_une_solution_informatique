@@ -1,4 +1,4 @@
-# SECURITY.md — Analyse de sécurité DataShare
+# Analyse de sécurité DataShare
 
 ## 1. Scan de sécurité Backend (Maven)
 

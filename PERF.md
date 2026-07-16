@@ -32,54 +32,57 @@ L'endpoint upload est le plus critique car il :
 
 ## Configuration du test
 
-| Paramètre | Valeur |
-|-----------|--------|
-| Utilisateurs virtuels (VUs) | 10 |
-| Durée | 30 secondes |
-| Seuil durée p(95) | < 2000ms |
-| Seuil taux d'échec | < 10% |
+| Paramètre                   | Valeur      |
+|-----------------------------|-------------|
+| Utilisateurs virtuels (VUs) | 10          |
+| Durée                       | 30 secondes |
+| Seuil durée p(95)           | < 2000ms    |
+| Seuil taux d'échec          | < 10%       |
 
 ## Scénario de test
 1. Inscription d'un utilisateur de test (setup)
 2. Pour chaque VU :
- a. Connexion → récupération token JWT
- b. Upload fichier texte via multipart
- c. Vérification statut 201
- d. Pause 1 seconde
+      a. Connexion → récupération token JWT
+      b. Upload fichier texte via multipart
+      c. Vérification statut 201
+      d. Pause 1 seconde
  
  
 ## Résultats
 
 ### Seuils (Thresholds)
 
-| Seuil | Valeur obtenue | Statut |
-|-------|---------------|--------|
-| p(95) durée < 2000ms | 354ms | ✅ |
-| Taux d'échec < 10% | 0.20% | ✅ |
+| Seuil                  | Valeur obtenue | Statut     |
+|------------------------|----------------|------------|
+| p(95) durée < 2000ms   | 354ms          | ✅         |
+| Taux d'échec < 10%     | 0.20%          | ✅         |
 
 ### Métriques détaillées
 
-| Métrique | Valeur |
-|----------|--------|
-| Durée moyenne | 142ms |
-| Durée minimale | 7.76ms |
-| Durée médiane | 109ms |
-| Durée maximale | 986ms |
-| p(90) durée | 303ms |
-| p(95) durée | 354ms |
-| Requêtes/seconde | 15.3 |
-| Total requêtes | 481 |
-| Itérations complètes | 240 |
-| Checks réussis | 100% (720/720) |
-| Taux d'échec | 0.20% |
+| Métrique             | Valeur          |
+|----------------------|-----------------|
+| Durée moyenne        | 142ms           |
+| Durée minimale       | 7.76ms          |
+| Durée médiane        | 109ms           |
+| Durée maximale       | 986ms           |
+| p(90) durée          | 303ms           |
+| p(95) durée          | 354ms           |
+| Requêtes/seconde     | 15.3            |
+| Total requêtes       | 481             |
+| Itérations complètes | 240             |
+| Checks réussis       | 100% (720/720)  |
+| Taux d'échec         | 0.20%           |
 
 ### Détail des checks
 
-| Check | Résultat |
-|-------|---------|
-| login status 200 | ✅ 100% |
-| upload status 201 | ✅ 100% |
-| response time < 2s | ✅ 100% |
+| Check                | Résultat|
+|----------------------|---------|
+| login status 200     | ✅ 100% |
+| upload status 201    | ✅ 100% |
+| response time < 2s   | ✅ 100% |
+
+
+![capture test](./k6-test-perfomance-upload.png)
 
 ## Analyse
 
@@ -113,4 +116,6 @@ DEBUG : Completed 201 CREATED
 - Mettre en place un cache Redis pour les métadonnées fréquemment accédées
 - Configurer un CDN pour la distribution des fichiers en production
 
-![capture test](./k6-test-perfomance-upload.png)
+
+
+
