@@ -42,7 +42,7 @@ npm test --> pour lancer le test
 # D'abord lancer le backend dans un terminal et frontend dans un autre terminal 
 
 cd backend 
-./mvnw run --> pour lancer le backend
+./mvnw spring-boot:run --> pour lancer le backend
 cd frontend
 ng serve --> pour lancer le frontend
 
