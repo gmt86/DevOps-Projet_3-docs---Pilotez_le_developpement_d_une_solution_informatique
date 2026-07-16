@@ -94,7 +94,7 @@ npm audit --json
 | `esbuild` | Low      | Lecture de fichier arbitraire sur Windows | **Ignorée** | Dépendance de développement. Projet déployé sur Linux uniquement. |
 
 
-![capture audit](../screenshots/frontend-resultats-scan.png)
+![capture audit](./frontend-resultats-scan.png)
 
 ## 2.1. Mesures de sécurité implémentées
 
