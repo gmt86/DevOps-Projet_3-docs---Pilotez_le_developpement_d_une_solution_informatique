@@ -19,7 +19,7 @@ Objectif : **70% minimum**
 
 ## Rapport de couverture JaCoCo
 
-Couverture atteinte : **71%** 
+Couverture atteinte : **71%** et se trouve dans /target/site/jacoco/index.html
 
 ![Rapport JaCoCo](../screenshots/backend-testunitaire-rapport-couverture-jacoco.png)
 
@@ -34,8 +34,11 @@ cd backend
 ### Tests unitaires frontend (Jest)
 ```Dans un termial bash acceder au dossier projet frontend 
 cd frontend 
-npm test --> pour lancer le test
+npm run test:jest --> pour lancer le test
+npm run test:jest:coverage --> pour générer le rapport de couverture de test
+# Rapport disponible dans : /coverage/index.html
 ```
+![Rapport Jest](../screenshots/frontend-couverture-test.png)
 
 ### Instructions d'exécution Cypress
 ```Dans des terminaux bash acceder aux dossiers projets backend et frontend 

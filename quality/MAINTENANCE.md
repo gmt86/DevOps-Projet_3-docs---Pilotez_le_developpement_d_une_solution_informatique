@@ -268,7 +268,9 @@ cd backend
 ### Tests unitaires frontend (Jest)
 ```bash
 cd frontend
-npm run test:jest
+npm run test:jest --> pour lancer le test
+npm run test:jest:coverage --> pour générer le rapport de couverture de test
+# Rapport disponible dans : /coverage/index.html
 ```
 
 ### Tests E2E (Cypress)
